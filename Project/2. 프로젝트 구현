@@ -1,0 +1,24 @@
+[ application.yml ]
+spring:
+  jpa:
+    show-sql: true # 실행 할 sql 구문들이 콘솔에서 확인이 된다
+    hibernate:
+      ddl-auto: none # hibernate 를 사용해서 데이터베이스 스키마를 생성하는 방법을 제어 하는 옵션
+                     # none 을 선택해주면 application 이 시작 될 때 데이터베이스 스키마를 변경하지 않게 된다
+    database-platform: org.hibernate.dialect.H2Dialect # 스프링 부트에서 jpa 를 사용해서 데이터베이스를 다룰 때 hibernate 에서 사용 할 데이터베이스 플랫폼을 지정하는데 사용되는 옵션
+
+  sql:
+    init:
+      mode: always # 항상 초기 sql 스크립트를 실행해준다
+      platform: h2
+
+  datasource:
+    url: jdbc:h2:mem:development;MODE=MYSQL;DB_CLOSE_DELAY=-1 # h2 인메모리 데이터 베이스에 스키마는 developement 모드는 mysql
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
