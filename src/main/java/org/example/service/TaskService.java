@@ -23,7 +23,7 @@ public class TaskService {
 
     private final TaskRepository taskRepository;
 
-    public Task add(String title, String description, String dueDate) {
+    public Task add(String title, String description, LocalDate dueDate) {
         var e = TaskEntity.builder()
                 .title(title)
                 .description(description)
